@@ -6,6 +6,8 @@ import pickle
 app = Flask(__name__)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 loaded_model = pickle.load(open("./finalized_model.sav", 'rb'))
+
+
 @app.route('/', methods=['GET'])
 def home():
     return '''<h1>Valorant Prediction API</h1>'''
