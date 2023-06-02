@@ -5,7 +5,6 @@ import pickle
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
-loaded_model = pickle.load(open("./finalized_model.sav", 'rb'))
 
 
 @app.route('/', methods=['GET'])
@@ -23,4 +22,5 @@ def predict():
     # Return the prediction as a JSON response
     return jsonify({'prediction': prediction[0][1]})
 if __name__ == '__main__':
+    loaded_model = pickle.load(open("./finalized_model.sav", 'rb'))
     app.run(debug=True)
