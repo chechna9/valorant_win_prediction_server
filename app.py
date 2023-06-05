@@ -5,7 +5,7 @@ import pickle
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
-loaded_model = pickle.load(open("./finalized_model.sav", 'rb'))
+
 
 @app.route('/', methods=['GET'])
 def home():
@@ -16,6 +16,7 @@ def home():
 def predict():
     # Retrieve the input data from the request
     data = request.json['data']
+    loaded_model = pickle.load(open("./finalized_model.sav", 'rb'))
     # Perform prediction using your logistic regression model
     prediction = loaded_model.predict_proba(data)
     
