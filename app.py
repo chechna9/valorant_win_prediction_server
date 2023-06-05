@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from model_dep import *
+from model_dep import m2_feature_selection
 from flask_cors import CORS
 import pickle
 
