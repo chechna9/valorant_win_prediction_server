@@ -2,10 +2,11 @@ from flask import Flask, request, jsonify
 from model_dep import m2_feature_selection
 from flask_cors import CORS
 import pickle
+import __main__
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
-
+__main__.m2_feature_selection = m2_feature_selection
 
 @app.route('/', methods=['GET'])
 def home():
